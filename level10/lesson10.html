@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Arabic Typing Master</title>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../app.css"/>
+<script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../app.js"></script>
+<script type="text/javascript" src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var lesson = ["لَا", "ضَرَرَ", "وَلَا", "ضِرَارَ", "."];
+
+        APP.init({
+            lesson: lesson
+        });
+    })
+</script>
+</head>
+<body>
+    <div class="container">
+        <div style="margin: 10px 10px; text-align: center">
+            <h1>Arabic Typing Master</h1>
+            <h3>Level 10 > Hadith 10</h3>
+        </div>
+        <div id="lessonBlock" style="font-size: 32px; text-align: right" dir="rtl"></div>
+        <div id="stats">
+            <label id="wordsMatched" style="border-bottom: 0"></label>
+            <label id="timer" style="border-bottom: 0"></label>
+        </div>
+        <div class="form-group">
+            <textarea id="userInput"
+                        class="form-control"
+                        name="userInput" 
+                        style="text-align: right; font-size: 32px"
+                        rows="5" 
+                        dir="rtl"></textarea>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col align-self-start">
+                    <a href="lesson9.html" class="btn btn-primary">Hadith 9</a>
+                    <button id="reset" class="btn btn-primary">Reset</button>
+                    <button id="showKeyboard"
+                            class="btn btn-primary" 
+                            data-toggle="modal" 
+                            data-target="#keyboardModal">Show Keyboard</button>
+                </div>
+                <div class="col" style="text-align: right">
+                    <a href="lesson11.html" class="btn btn-primary">Hadith 11</a>
+                </div>
+            </div>
+            <div class="modal fade" id="keyboardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Keyboard Layout</h5>
+                    </div>
+                    <div class="modal-body">
+                        <img src="../arabic-keyboard-mac.png" width="770" height="300"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, Got It</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
