@@ -8,6 +8,7 @@ var APP = (function($) {
     var init = function (options) {
         $(window).on('load',function(){
             $('#keyboardModal').modal('show');
+            $('#userInput').attr('unselectable', 'on').css('user-select', 'none').on('selectstart dragstart', false);
         });
         
         var lesson = options.lesson;
@@ -37,7 +38,7 @@ var APP = (function($) {
                 timer = false;
             }
 
-            if (wordCount >= totalWords || e.which === BACKSPACE || e.which === ENTER) {
+            if (wordCount >= totalWords || e.which < 32 || (e.which > 32 && e.which < 48)) {
                 e.preventDefault();
                 return false;
     
