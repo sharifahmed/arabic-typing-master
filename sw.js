@@ -1,4 +1,6 @@
 const cacheName = "arabic-typing-master-v1";
+
+// Add new routes to assets array to make sure it is available offline.
 const assets = [
   "./",
   "./index.html",

@@ -736,6 +736,20 @@
                 </div>
             </div>
         </fieldset>
-    </div>                  
+    </div> 
+    <script>
+        window.addEventListener("load", function() {
+            registerServiceWorker();
+        });
+        async function registerServiceWorker() {
+        if ("serviceWorker" in navigator) {
+            try {
+            await navigator.serviceWorker.register("./sw.js");
+            } catch (e) {
+            console.log(`SW registration failed`);
+            }
+        }
+        }
+    </script>                 
 </body>
 </html>

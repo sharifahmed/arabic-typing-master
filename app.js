@@ -109,15 +109,3 @@ var APP = (function($) {
     init: init
   };
 })(jQuery);
-window.addEventListener("load", function() {
-  registerServiceWorker();
-});
-async function registerServiceWorker() {
-  if ("serviceWorker" in navigator) {
-    try {
-      await navigator.serviceWorker.register("./sw.js");
-    } catch (e) {
-      console.log(`SW registration failed`);
-    }
-  }
-}
