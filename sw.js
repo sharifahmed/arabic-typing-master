@@ -83,7 +83,8 @@ const assets = [
   "./level9/lesson6.html",
   "./level9/lesson7.html",
   "./level9/lesson8.html",
-  "./level9/lesson9.html"
+  "./level9/lesson9.html",
+  "./level10/lesson1.html"
 ];
 
 self.addEventListener("install", async e => {
