@@ -12,8 +12,6 @@ var APP = (function($) {
         .attr("unselectable", "on")
         .css("user-select", "none")
         .on("selectstart dragstart", false);
-
-      registerServiceWorker();
     });
 
     var lesson = options.lesson;
