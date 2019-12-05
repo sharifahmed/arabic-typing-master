@@ -6,9 +6,11 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <link rel="stylesheet" href="./bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="app.css"/>
+<link rel="manifest" href="./manifest.webmanifest">
 <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -678,6 +680,20 @@
                 </div>
             </div>
         </fieldset>
-    </div>                  
+    </div> 
+    <script>
+        window.addEventListener("load", function() {
+            registerServiceWorker();
+        });
+        async function registerServiceWorker() {
+        if ("serviceWorker" in navigator) {
+            try {
+            await navigator.serviceWorker.register("./sw.js");
+            } catch (e) {
+            console.log(`SW registration failed`);
+            }
+        }
+        }
+    </script>                 
 </body>
 </html>

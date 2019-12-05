@@ -1,0 +1,15 @@
+{
+  "name": "Arabic Typing Master",
+  "short_name": "Arabic Typing Master",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Arabic Typing Software ",
+  "icons": [
+    {
+      "src": "./logo.gif",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
