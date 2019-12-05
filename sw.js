@@ -36,6 +36,7 @@ const assets = [
   "./level1/lesson3.html",
   "./level1/lesson4.html",
   "./level1/lesson5.html",
+  "./level1/lesson6.html",
   "./level2/lesson1.html",
   "./level2/lesson2.html",
   "./level2/lesson3.html",
@@ -73,9 +74,6 @@ const assets = [
   "./level8/lesson1.html",
   "./level8/lesson2.html",
   "./level9/lesson1.html",
-  "./level9/lesson10.html",
-  "./level9/lesson11.html",
-  "./level9/lesson12.html",
   "./level9/lesson2.html",
   "./level9/lesson3.html",
   "./level9/lesson4.html",
@@ -84,7 +82,11 @@ const assets = [
   "./level9/lesson7.html",
   "./level9/lesson8.html",
   "./level9/lesson9.html",
-  "./level10/lesson1.html"
+  "./level9/lesson10.html",
+  "./level9/lesson11.html",
+  "./level9/lesson12.html",
+  "./level10/lesson1.html",
+  "./level10/lesson2.html"
 ];
 
 self.addEventListener("install", async e => {
