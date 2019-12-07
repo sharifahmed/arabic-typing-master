@@ -16,7 +16,9 @@
                       "وَحَجِّ", "الْبَيْتِ", "،", "وَصَوْمِ", "رَمَضَانَ", "."];
 
         APP.init({
-            lesson: lesson
+            lesson: lesson,
+            lessonNumber: 12,
+            isFinalLesson: true
         });
     });
 </script>
@@ -74,16 +76,8 @@
                         dir="rtl"></textarea>
         </div>
         <div>
-            <div class="row">
-                <div class="col align-self-start">
-                    <a href="lesson11.html" class="btn btn-primary">Hadith 11</a>
-                    <button id="reset" class="btn btn-primary">Reset</button>
-                    <button id="showKeyboard"
-                            class="btn btn-primary" 
-                            data-toggle="modal" 
-                            data-target="#keyboardModal">Show Keyboard</button>
-                </div>
-            </div>
+            <div class="row" id="buttonBlock"></div>
+            
             <div class="modal fade" id="keyboardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">

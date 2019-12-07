@@ -14,7 +14,8 @@
         var lesson = ["مِنْ", "حُسْنِ", "إسْلَامِ", "الْمَرْءِ", "تَرْكُهُ", "مَا", "لَا", "يَعْنِيهِ", "."];
 
         APP.init({
-            lesson: lesson
+            lesson: lesson,
+            lessonNumber: 5
         });
     });
 </script>
@@ -72,19 +73,8 @@
                         dir="rtl"></textarea>
         </div>
         <div>
-            <div class="row">
-                <div class="col align-self-start">
-                    <a href="lesson4.html" class="btn btn-primary">Hadith 4</a>
-                    <button id="reset" class="btn btn-primary">Reset</button>
-                    <button id="showKeyboard"
-                            class="btn btn-primary" 
-                            data-toggle="modal" 
-                            data-target="#keyboardModal">Show Keyboard</button>
-                </div>
-                <div class="col" style="text-align: right">
-                    <a href="lesson6.html" class="btn btn-primary">Hadith 6</a>
-                </div>
-            </div>
+            <div class="row" id="buttonBlock"></div>
+            
             <div class="modal fade" id="keyboardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">

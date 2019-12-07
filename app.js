@@ -32,6 +32,43 @@ var APP = (function($) {
       $("<label>", { id: id, text: value }).appendTo($lessonBlock);
     });
 
+    var lessonNumber = options.lessonNumber;
+    var $buttonBlock = $("#buttonBlock");
+
+    var $buttonLeft = $('<div>', {class: 'col'});
+
+    if (lessonNumber != 1) {
+      var $prev = $('<a>', {href: 'lesson' + (lessonNumber - 1) + '.html',
+       class: 'btn btn-light'})
+       .append($('<img>', {src: '../prev.svg', title: 'Prev Lesson'}));
+
+        $prev.appendTo($buttonLeft);
+    }   
+
+    var $reset = $('<button>', {id: 'reset', class: 'btn btn-light'})
+      .append($('<img>', {src: '../reset.svg', title: 'Reset'}));
+      $reset.appendTo($buttonLeft);
+
+    var $showKeyboard = $('<button>', {id: 'showKeyboard', class: 'btn btn-light'})
+    .attr('data-toggle', 'modal')
+    .attr('data-target', '#keyboardModal');
+
+    var $keyboardImage = $('<img>', {src: '../keyboard.svg', title: 'Show Keyboard'});
+
+    $keyboardImage.appendTo($showKeyboard);
+
+    $showKeyboard.appendTo($buttonLeft);
+
+    $buttonLeft.appendTo($buttonBlock);
+
+    if (!options.isFinalLesson) {
+      var $next = $('<div>', {class: 'col text-right'})
+      .append($('<a>', {class: 'btn btn-light', href: 'lesson' + (lessonNumber + 1) + '.html'})
+      .append($('<img>', {src: '../next.svg', title: 'Next Lesson'})));
+
+      $next.appendTo($buttonBlock);
+    }
+  
     $("#wordsMatched").html("Score: " + noOfWordsMatched + "/" + totalWords);
     $("#timer").html("Speed: 0 w/s");
 
