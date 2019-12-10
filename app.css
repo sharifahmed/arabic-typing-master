@@ -6,3 +6,7 @@ label {
 .wrapper {
     display: block;
 }
+
+.card:hover {
+    box-shadow: 0rem .5rem 1rem rgba(0,0,0,.15)
+}
