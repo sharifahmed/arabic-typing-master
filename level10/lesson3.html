@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arabic Typing Master</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../app.css"/>
+    <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../app.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var lesson = ["وَكَانَ", "إِبْرَاهِيْمُ", "يَقُوْلُ", "لِوَالِدِهِ:", "يَا", "أَبِي,", "لِمَاذَا", "تَعْبُدُ",
+                "هَذِهِ", "الْأَصْنَامَ؟", "وَيَا", "أَبِي", "لِمَاذَا", "تَسْجُدُ", "لِهَذِهِ", "الْأَصْنَامِ؟", "وَيَا",
+                "أَبِي", "لِمَاذَا", "تَسْأَلُ", "هَذِهِ", "الْأَصْنَامَ؟", "إِنَّ", "هَذِهِ", "الْأَصْنَامَ", "لَا", "تَتَكَلَّمُ",
+                "وَلَا", "تَسْمَعُ!", "وَإِنَّ", "هَذِهِ", "الْأَصْنَامَ", "لَا", "تَضُرُّ", "وَلَا", "تَنْفَعُ!", "وَلِأَيِّ", "شَيْءٍ",
+                "تَضَعُ", "لَهَا", "الطَّعَامَ", "وَالشَّرَابَ؟", "وَإِنَّ", "هَذِهِ", "الْأَصْنَامَ", "يَا", "أَبِي", "لَا",
+                "تَأْكُلُ", "وَلَا", "تَشْرَبُ!", "وَكَانَ", "آزَرُ", "يَغْضَبُ", "وَلَا", "يَفْهَمُ.", "وَكَانَ", "إِبْرَاهِيْمُ",
+                "يَنْصَحُ", "لِقَوْمِهِ,", "وَكَانَ", "النَّاسُ", "يَغْضَبُوْنَ", "وَلَا", "يَفْهَمُوْنَ.", "قَالَ", "إِبْرَاهِيْمُ",
+                "أَنَا", "أَكْسِرُ", "الْأَصْنَامَ", "إِذَا", "ذَهَبَ", "النَّاسُ,", "وَحِيْنَئِذٍ", "يَفْهَمُ", "النَّاسُ."];
+
+            APP.init({
+                lesson: lesson,
+                lessonNumber: 3
+            });
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="../index.html">
+        <img src="../logo.gif" width="30" height="30" class="d-inline-block align-top" alt=""/>
+        Arabic Typing Master
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Lessons
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="../index.html#level1">Level 1</a>
+                    <a class="dropdown-item" href="../index.html#level2">Level 2</a>
+                    <a class="dropdown-item" href="../index.html#level3">Level 3</a>
+                    <a class="dropdown-item" href="../index.html#level4">Level 4</a>
+                    <a class="dropdown-item" href="../index.html#level5">Level 5</a>
+                    <a class="dropdown-item" href="../index.html#level6">Level 6</a>
+                    <a class="dropdown-item" href="../index.html#level7">Level 7</a>
+                    <a class="dropdown-item" href="../index.html#level8">Level 8</a>
+                    <a class="dropdown-item" href="../index.html#level9">Level 9</a>
+                    <a class="dropdown-item" href="../index.html#level10">Level 10</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <a style="color: rgba(0,0,0,.5)" href="https://github.com/sharifahmed/arabic-typing-master" target="_blank">
+        Contribute
+    </a>
+</nav>
+<div class="container">
+    <div style="margin: 10px 10px; text-align: center">
+        <h3>Level 10 > Story 3</h3>
+    </div>
+    <div id="lessonBlock" style="font-size: 32px; text-align: right" dir="rtl"></div>
+    <div id="stats">
+        <label id="wordsMatched" style="border-bottom: 0"></label>
+        <label id="timer" style="border-bottom: 0"></label>
+    </div>
+    <div class="form-group">
+            <textarea id="userInput"
+                      class="form-control"
+                      name="userInput"
+                      style="text-align: right; font-size: 32px"
+                      rows="5"
+                      dir="rtl"></textarea>
+    </div>
+    <div>
+        <div class="row" id="buttonBlock"></div>
+
+        <div class="modal fade" id="keyboardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Keyboard Layout</h5>
+                    </div>
+                    <div class="modal-body">
+                        <img src="../arabic-keyboard-mac.png" width="770" height="300"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, Got It</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
