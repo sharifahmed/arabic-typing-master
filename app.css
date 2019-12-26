@@ -1,8 +1,25 @@
+@font-face {
+  font-family: TraditionalArabic;
+  src: url(fonts/traditional-arabic/trado.woff2),
+    url(fonts/traditional-arabic/trado.woff);
+}
+@font-face {
+  font-family: TraditionalArabic;
+  src: url(fonts/traditional-arabic/tradbdo.woff2)
+    url(fonts/traditional-arabic/tradbdo.woff);
+  font-weight: bold;
+}
 label {
-    border-bottom: 6px solid #ccc;
-    margin-right: 10px;
+  border-bottom: 6px solid #ccc;
+  margin-right: 10px;
+}
+
+#userInput,
+#lessonBlock > label {
+  font-family: TraditionalArabic;
+  font-size: 50px !important;
 }
 
 .wrapper {
-    display: block;
+  display: block;
 }
