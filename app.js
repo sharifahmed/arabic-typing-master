@@ -91,8 +91,9 @@ var APP = (function($) {
 
       if (
         wordCount >= totalWords ||
-        e.which < 32 ||
-        (e.which > 32 && e.which < 48)
+        (e.which < 32 && e.which != BACKSPACE) ||
+        (e.which > 32 && e.which < 37) ||
+        (e.which > 40 && e.which < 48)
       ) {
         e.preventDefault();
         return false;
@@ -124,6 +125,10 @@ var APP = (function($) {
           var diff = stop - start;
           var wordPerSecond = Math.round((noOfWordsMatched / diff) * 6000, 2);
           $("#timer").html("Speed: " + wordPerSecond + " w/s");
+        }
+      } else if (e.which === BACKSPACE) {
+        if (inputWordLen != 0) {
+          inputWordLen--;
         }
       } else {
         inputWordLen++;
