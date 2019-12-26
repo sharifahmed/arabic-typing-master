@@ -2,8 +2,6 @@ var APP = (function($) {
   "use strict";
 
   var WHITESPACE = 32;
-  var BACKSPACE = 8;
-  var ENTER = 13;
 
   var init = function(options) {
     $(window).on("load", function() {
