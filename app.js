@@ -24,6 +24,10 @@ var APP = (function($) {
     var start = 0;
     var stop = 0;
 
+    var os = navigator.appVersion.includes('Mac') ? "mac" : "other";
+    var keyboard = "arabic-keyboard-" + os + '.svg';
+    $('#keyboardLayout').attr('src', '../' + keyboard);
+
     var $lessonBlock = $("#lessonBlock");
     $.each(lesson, function(index, value) {
       var id = "word" + index;
