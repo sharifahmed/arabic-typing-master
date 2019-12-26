@@ -32,6 +32,10 @@ var APP = (function($) {
       $("<label>", { id: id, text: value }).appendTo($lessonBlock);
     });
 
+    if (lesson.length != 0) {
+      $("#word0").addClass("currentWord");
+    }
+
     var lessonNumber = options.lessonNumber;
     var $buttonBlock = $("#buttonBlock");
 
@@ -116,6 +120,10 @@ var APP = (function($) {
           "Score: " + noOfWordsMatched + "/" + totalWords
         );
 
+        $(wordId).removeClass("currentWord");
+        if (wordCount < totalWords) {
+          $("#word" + (wordCount + 1)).addClass("currentWord");
+        }
         index += inputWordLen + 1;
         inputWordLen = 0;
         wordCount++;
@@ -136,6 +144,8 @@ var APP = (function($) {
     });
 
     $("#reset").click(function() {
+      $("#word" + wordCount).removeClass("currentWord");
+      $("#word0").addClass("currentWord");
       index = 0;
       wordCount = 0;
       inputWordLen = 0;

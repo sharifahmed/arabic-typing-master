@@ -86,7 +86,11 @@ const assets = [
   "./level9/lesson11.html",
   "./level9/lesson12.html",
   "./level10/lesson1.html",
-  "./level10/lesson2.html"
+  "./level10/lesson2.html",
+  "./fonts/traditional-arabic/trado.woff",
+  "./fonts/traditional-arabic/trado.woff2",
+  "./fonts/traditional-arabic/tradbdo.woff",
+  "./fonts/traditional-arabic/tradbdo.woff2"
 ];
 
 self.addEventListener("install", async e => {
