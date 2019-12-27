@@ -87,7 +87,11 @@ var APP = (function($) {
     $("#wordsMatched").html("Score: " + noOfWordsMatched + "/" + totalWords);
     $("#timer").html("Speed: 0 w/s");
 
-    $("#userInput").keydown(function(e) {
+    $("#userInput").keyup(function(e) {
+      var spaceTriggered = $("#userInput")
+        .val()
+        .includes(" ");
+
       if (timer) {
         start = new Date().getTime();
         timer = false;
@@ -101,12 +105,14 @@ var APP = (function($) {
       ) {
         e.preventDefault();
         return false;
-      } else if (e.which === WHITESPACE) {
+      } else if (e.which === WHITESPACE || spaceTriggered) {
         e.preventDefault();
         var wordId = "#word" + wordCount;
         var color = "red";
 
-        var value = $("#userInput").val();
+        var value = $("#userInput")
+          .val()
+          .trim();
         $("#userInput").val("");
         if (value === lesson[wordCount]) {
           color = "green";
