@@ -87,6 +87,8 @@ const assets = [
   "./level9/lesson12.html",
   "./level10/lesson1.html",
   "./level10/lesson2.html",
+  "./level10/lesson3.html",
+  "./level10/lesson4.html",
   "./fonts/traditional-arabic/trado.woff",
   "./fonts/traditional-arabic/trado.woff2",
   "./fonts/traditional-arabic/tradbdo.woff",
