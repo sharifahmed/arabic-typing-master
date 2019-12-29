@@ -34,28 +34,40 @@ var APP = (function($) {
       $("<label>", { id: id, text: value }).appendTo($lessonBlock);
     });
 
+    if (lesson.length != 0) {
+      $("#word0").addClass("currentWord");
+    }
+
     var lessonNumber = options.lessonNumber;
     var $buttonBlock = $("#buttonBlock");
 
-    var $buttonLeft = $('<div>', {class: 'col'});
+    var $buttonLeft = $("<div>", { class: "col" });
 
     if (lessonNumber != 1) {
-      var $prev = $('<a>', {href: 'lesson' + (lessonNumber - 1) + '.html',
-       class: 'btn btn-light'})
-       .append($('<img>', {src: '../prev.svg', title: 'Prev Lesson'}));
+      var $prev = $("<a>", {
+        href: "lesson" + (lessonNumber - 1) + ".html",
+        class: "btn btn-light"
+      }).append($("<img>", { src: "../prev.svg", title: "Prev Lesson" }));
 
-        $prev.appendTo($buttonLeft);
-    }   
+      $prev.appendTo($buttonLeft);
+    }
 
-    var $reset = $('<button>', {id: 'reset', class: 'btn btn-light'})
-      .append($('<img>', {src: '../reset.svg', title: 'Reset'}));
-      $reset.appendTo($buttonLeft);
+    var $reset = $("<button>", { id: "reset", class: "btn btn-light" }).append(
+      $("<img>", { src: "../reset.svg", title: "Reset" })
+    );
+    $reset.appendTo($buttonLeft);
 
-    var $showKeyboard = $('<button>', {id: 'showKeyboard', class: 'btn btn-light'})
-    .attr('data-toggle', 'modal')
-    .attr('data-target', '#keyboardModal');
+    var $showKeyboard = $("<button>", {
+      id: "showKeyboard",
+      class: "btn btn-light"
+    })
+      .attr("data-toggle", "modal")
+      .attr("data-target", "#keyboardModal");
 
-    var $keyboardImage = $('<img>', {src: '../keyboard.svg', title: 'Show Keyboard'});
+    var $keyboardImage = $("<img>", {
+      src: "../keyboard.svg",
+      title: "Show Keyboard"
+    });
 
     $keyboardImage.appendTo($showKeyboard);
 
@@ -64,17 +76,24 @@ var APP = (function($) {
     $buttonLeft.appendTo($buttonBlock);
 
     if (!options.isFinalLesson) {
-      var $next = $('<div>', {class: 'col text-right'})
-      .append($('<a>', {class: 'btn btn-light', href: 'lesson' + (lessonNumber + 1) + '.html'})
-      .append($('<img>', {src: '../next.svg', title: 'Next Lesson'})));
+      var $next = $("<div>", { class: "col text-right" }).append(
+        $("<a>", {
+          class: "btn btn-light",
+          href: "lesson" + (lessonNumber + 1) + ".html"
+        }).append($("<img>", { src: "../next.svg", title: "Next Lesson" }))
+      );
 
       $next.appendTo($buttonBlock);
     }
-  
+
     $("#wordsMatched").html("Score: " + noOfWordsMatched + "/" + totalWords);
     $("#timer").html("Speed: 0 w/s");
 
-    $("#userInput").keydown(function(e) {
+    $("#userInput").keyup(function(e) {
+      var spaceTriggered = $("#userInput")
+        .val()
+        .includes(" ");
+
       if (timer) {
         start = new Date().getTime();
         timer = false;
@@ -82,19 +101,21 @@ var APP = (function($) {
 
       if (
         wordCount >= totalWords ||
-        e.which < 32 ||
-        (e.which > 32 && e.which < 48)
+        (e.which < 32 && e.which != BACKSPACE) ||
+        (e.which > 32 && e.which < 37) ||
+        (e.which > 40 && e.which < 48)
       ) {
         e.preventDefault();
         return false;
-      } else if (e.which === WHITESPACE) {
+      } else if (e.which === WHITESPACE || spaceTriggered) {
+        e.preventDefault();
         var wordId = "#word" + wordCount;
         var color = "red";
 
         var value = $("#userInput")
           .val()
-          .substr(index, index + inputWordLen);
-
+          .trim();
+        $("#userInput").val("");
         if (value === lesson[wordCount]) {
           color = "green";
           noOfWordsMatched++;
@@ -107,6 +128,10 @@ var APP = (function($) {
           "Score: " + noOfWordsMatched + "/" + totalWords
         );
 
+        $(wordId).removeClass("currentWord");
+        if (wordCount < totalWords) {
+          $("#word" + (wordCount + 1)).addClass("currentWord");
+        }
         index += inputWordLen + 1;
         inputWordLen = 0;
         wordCount++;
@@ -117,12 +142,18 @@ var APP = (function($) {
           var wordPerSecond = Math.round((noOfWordsMatched / diff) * 6000, 2);
           $("#timer").html("Speed: " + wordPerSecond + " w/s");
         }
+      } else if (e.which === BACKSPACE) {
+        if (inputWordLen != 0) {
+          inputWordLen--;
+        }
       } else {
         inputWordLen++;
       }
     });
 
     $("#reset").click(function() {
+      $("#word" + wordCount).removeClass("currentWord");
+      $("#word0").addClass("currentWord");
       index = 0;
       wordCount = 0;
       inputWordLen = 0;
