@@ -4,8 +4,8 @@ const cacheName = "arabic-typing-master-v1";
 const assets = [
   "./",
   "./index.html",
-  "./app.css",
-  "./app.js",
+  "./app-1.0.css",
+  "./app-1.0.js",
   "./arabic-keyboard-mac.png",
   "./logo.gif",
   "./jquery-3.4.1.min.js",
